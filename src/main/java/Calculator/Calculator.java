@@ -117,14 +117,10 @@ public class Calculator {
                     logging.error("[ERROR]: Expected Double but got different type. Try again!!");
                     return;
                 }
-                if(sqrtVal>=0) {
+
                     System.out.println("Square root of " + sqrtVal + ": " + calc.calcSQRT(sqrtVal));
                     System.out.println("======================================================");
-                }
-                else{
-                    logging.error("[ERROR]: Square root is not defined for Negative numbers");
-                    return;
-                }
+
                 break;
 
             default:
@@ -155,6 +151,8 @@ public double calcFactorial(double factVal)
 public double calcExp(double base, double exp)
 {
     logging.info("[INFO]: Base: "+base +" Exponent: "+exp);
+    if(base==0 && exp ==0)
+            return Double.NaN;
     return Math.pow(base,exp);
 }
 public double calcLog(double logVal)
@@ -166,7 +164,11 @@ public double calcLog(double logVal)
 public double calcSQRT(double sqrtVal)
     {
         logging.info("[INFO]: Value: "+sqrtVal);
-        return Math.sqrt(sqrtVal);
+        if(sqrtVal <0 ) {
+            logging.error("[ERROR]: Square is not defined for Negative numbers as of now!!");
+            return Double.NaN;
+        }
+            return Math.sqrt(sqrtVal);
     }
 
 
