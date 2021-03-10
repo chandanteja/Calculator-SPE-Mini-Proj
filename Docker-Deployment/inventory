@@ -1,4 +1,4 @@
 localhost ansible_user=chandan
 
 [ubuntu20]
-172.16.130.62 ansible_user=chandan1
+172.16.129.85 ansible_user=chandan1
